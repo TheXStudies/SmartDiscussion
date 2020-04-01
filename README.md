@@ -1,6 +1,6 @@
-=====================
+----------------
 Smart Discussion
-=====================
+----------------
 
 
 Discuss news, articles and situation smartly.
