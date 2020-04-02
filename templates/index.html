@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Smart Discussion</title>
+  <title>Smart Discussion</title>
 </head>
 <body>
 <h1>Smart Discussion</h1>
 {% if user.is_authenticated %}
-      <p>Logged as {{ user.username }}</p>
-      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-    {% else %}
-      <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
-        Login
-      </a>
-    {% endif %}
+  <p>Logged as {{ user.username }}</p>
+  <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+  <a href="{% url "create_article" %}">Create an article</a>
+  {% if articles %}
+    <h2>Articles:</h2>
+    {% for article in articles %}
+        <h3>{{ article.title }}</h3>
+        <span>By: {{ article.author }}</span>
+        <span>{{ article.text }}</span>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+    Login
+  </a>
+{% endif %}
 </body>
 </html>
