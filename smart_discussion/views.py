@@ -17,6 +17,7 @@ def logout(request, next_page='index'):
 
 
 class ArticleCreate(CreateView):
+    success_url = "/"
     template_name = "new_article.html"
     model = Article
     fields = ['title', 'text']
