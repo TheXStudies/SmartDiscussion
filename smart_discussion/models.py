@@ -10,3 +10,5 @@ class Article(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+
